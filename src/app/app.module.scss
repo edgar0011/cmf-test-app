@@ -1,0 +1,18 @@
+.app-container {
+  background-color: #EFEFEF;
+}
+
+.app-title-container {  
+  h1 {
+    font-size: 2rem;
+    border: 1px solid blue;
+  } 
+}
+
+
+// :global {
+//   .example-global-class {
+//     border: 1px solid red;
+//     border-radius: 4px;
+//   }
+// }
