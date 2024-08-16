@@ -1,0 +1,23 @@
+{
+  "routes": {
+    "basePath": "/app",
+    "auth": {
+      "cmf-test-app": {
+        "name": "cmf-test-app",
+        "icon": "applicationsIcon",
+        "tooltipText": "cmf-test-app",
+        "apps": [
+          {
+            "cssFiles": "[\"http://localhost:2001/bundle.css\"]",
+            "jsFiles": "[\"http://localhost:2001/bundle.js\",\"http://localhost:2001/bundle.umd.js\"]",
+            "mountId": "ui-cmf-test-app",
+            "config": "{\"basePath\":\"/app/cmf-test-app\"}",
+            "loader": true,
+            "data-sample-attribute": "some serialized data for cmf-test-app"
+          }
+        ]
+      }
+    },
+    "unauth": {}
+  }
+}

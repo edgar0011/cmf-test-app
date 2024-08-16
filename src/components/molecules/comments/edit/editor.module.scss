@@ -1,0 +1,42 @@
+@import 'src/styles/common.scss';
+
+.editor {
+  border: 1px solid $gray-100;
+  padding: 2rem;
+  background-color: $gray;
+  overflow: auto;
+  width: 100%;
+
+  :global {
+    #message {
+      width: 100%;
+      height: 8rem;
+      max-lines: 6;
+      padding: 0.25rem;
+    }
+  }
+}
+
+:global {
+  // Apply dark theme
+  .cui-theme-dark {
+    :local {
+      .editor {
+        border: 1px solid $gray-100;
+        background-color: $gray;
+        color: $white;
+      }
+    }
+  }
+
+  // Apply light theme
+  .cui-theme-light {
+    :local {
+      .editor {
+        border: 1px solid $gray-600;
+        background-color: $white;
+        color: $gray;
+      }
+    }
+  }
+}
