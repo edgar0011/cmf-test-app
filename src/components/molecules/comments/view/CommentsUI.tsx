@@ -1,7 +1,7 @@
 import { memo, FC, useMemo, useCallback } from 'react'
 import { classNames, LayoutBox } from '@e1011/es-kit'
 
-import { CommentType, mockDataAPI } from '../types'
+import { CommentType } from '../types'
 import { Editor } from '../edit/Editor'
 
 import { Comment } from './comment/Comment'
@@ -23,6 +23,16 @@ export const CommentsUI: FC<CommentsUIProps> = memo<CommentsUIProps>(({
     [dataAPI],
   )
 
+  const editCommentHandler = useCallback((id: string, data: Partial<CommentType>) => {
+    dataAPI.updateComment(id, data)
+    return true
+  }, [])
+
+  const createCommentHandler = useCallback((comment: CommentType) => {
+    dataAPI.createComment(comment)
+    return true
+  }, [])
+
   return (
     <LayoutBox column className={classNames(classes.commentsUI, className)}>
       <LayoutBox column width='100%'>
@@ -32,12 +42,12 @@ export const CommentsUI: FC<CommentsUIProps> = memo<CommentsUIProps>(({
             comment={comment}
             canEdit={comment.author.id === user.id}
             deleteHandler={createDeleteCommentHandler(comment)}
-            editHandler={mockDataAPI.updateComment}
+            editHandler={editCommentHandler}
           />
         ))}
       </LayoutBox>
 
-      <Editor comment={editorComment} createHandler={dataAPI.createComment} user={dataAPI.user} />
+      <Editor comment={editorComment} createHandler={createCommentHandler} user={dataAPI.user} />
     </LayoutBox>
   )
 })

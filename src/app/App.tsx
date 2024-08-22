@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
-import { ErrorBoundary, LayoutBox, useThemePreference } from '@e1011/es-kit'
+import { ErrorBoundary, LayoutBox, useThemePreference, useToggle } from '@e1011/es-kit'
 import '@e1011/es-kit/dist/ui/index.css'
 
 import classes from './app.module.scss'
@@ -16,7 +16,7 @@ export const App = (): ReactNode => {
 
 export const MainComponent = (): ReactNode => {
   const [comments, setComments] = useState<CommentType[]>()
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useToggle(false)
 
 
   const stateChangeHandler = useCallback(async () => {

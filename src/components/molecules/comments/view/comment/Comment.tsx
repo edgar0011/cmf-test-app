@@ -25,9 +25,9 @@ export const Comment: FC<CommentProps> = memo<CommentProps>(({
   const createHandlerAsEditHandler = useCallback(async (comment: ComType) => {
     const result = await editHandler(comment.id, comment)
 
-    toggleEditMode(false)
-
-    return result
+    if (result) {
+      toggleEditMode(false)
+    }
   }, [editHandler, toggleEditMode])
 
   const delteButtonClickHandler = useCallback(() => {

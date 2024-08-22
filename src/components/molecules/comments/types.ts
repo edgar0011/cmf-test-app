@@ -132,11 +132,11 @@ export const mockDataAPI: DataAPI = {
 }
 
 
-// eslint-disable-next-line no-restricted-syntax
-for (const [prop, value] of Object.entries(mockDataAPI)) {
-  if (typeof value === 'function') {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    mockDataAPI[prop] = value.bind(mockDataAPI)
-  }
-}
+// // eslint-disable-next-line no-restricted-syntax
+// for (const [prop, value] of Object.entries(mockDataAPI)) {
+//   if (typeof value === 'function') {
+//     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//     // @ts-ignore
+//     mockDataAPI[prop] = value.bind(mockDataAPI)
+//   }
+// }
